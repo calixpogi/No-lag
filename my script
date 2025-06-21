@@ -2,65 +2,90 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "game script hub",
-   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "game scriot hub",
+   Icon = 0,
+   LoadingTitle = "game script hub",
    LoadingSubtitle = "by calixpogi",
-   ShowText = "script", -- for mobile users to unhide rayfield, change if you'd like
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
-
-   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+   ShowText = "script",
+   Theme = "Default",
+   ToggleUIKeybind = "K",
 
    DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+   DisableBuildWarnings = false,
 
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
+      FolderName = nil,
       FileName = "nil"
    },
 
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = true
    },
 
-   KeySystem = true, -- Set this to true to use our key system
+   KeySystem = true,
    KeySettings = {
       Title = "game script key lol",
       Subtitle = "Watch video",
-      Note = "Wacth the full video to get key", -- Use this to tell the user how to get a key
-      FileName = "Key game script", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"https://pastebin.com/raw/maQrx00Z"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Note = "Watch the full video to get the key",
+      FileName = "KeyGameScript",
+      SaveKey = true,
+      GrabKeyFromSite = true,
+      Key = {"https://pastebin.com/raw/maQrx00Z"}
    }
 })
 
-local GagTab = Window:CreateTab("grow a garden", 4483362458) -- Title, Image
-local GagSection = Tab:CreateSection("spawner visual")
+-- Tab and Section
+local GagTab = Window:CreateTab("grow a garden", 4483362458)
+local GagSection = GagTab:CreateSection("spawner visual")
 
+-- Notification (without broken local image)
 Rayfield:Notify({
-   Title = "You have succecfully Executed the script!",
-   Content = "Follow me on tiktok calix.mendoza00",
-   Duration = 15.9,
-   Image = file:///C:/Users/mark_/OneDrive/Pictures/Screenshots/Screenshot%202025-06-21%20160258.png,
+   Title = "Script Executed!",
+   Content = "Follow @calix.mendoza00 on TikTok 😎",
+   Duration = 10
 })
 
-local GagButton = Tab:CreateButton({
+-- GAG Spawner Button
+local GagButton = GagTab:CreateButton({
    Name = "gagspawner",
    Callback = function()
-   local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/refs/heads/main/GardenSpawner.lua"))() 
+      local success, err = pcall(function()
+         local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/main/GardenSpawner.lua"))()
+         Spawner.Load()
+      end)
 
-Spawner.Load()
+      if not success then
+         warn("Failed to load spawner script: ", err)
+      end
+   end
+})
+
+-- No Lag Script Button
+local nolagButton = GagTab:CreateButton({
+   Name = "No lag script",
+   Callback = function()
+      local success, err = pcall(function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/master/NatHub.lua"))()
+      end)
+
+      if not success then
+         warn("Failed to load no-lag script: ", err)
+      end
+   end
+})
+
+-- Zysume Grow a Garden
+local ZysumeButton = Tab:CreateButton({
+   Name = "Zysume Gag script",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/refs/heads/Xycer-Hub-Script/GAGZ8"))()
    end,
 })
 
-local NolagTab = Window:CreateTab("No lag", 4483362458) -- Title, Image
-
-local nolagButton = Tab:CreateButton({
-   Name = "No lag script",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
-   end,
+      if not success then
+         warn("Failed to load  Zysume Gag script: ", err)
+      end
+   end
 })
