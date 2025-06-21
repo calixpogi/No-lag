@@ -40,52 +40,49 @@ local Window = Rayfield:CreateWindow({
 local GagTab = Window:CreateTab("grow a garden", 4483362458)
 local GagSection = GagTab:CreateSection("spawner visual")
 
--- Notification (without broken local image)
+-- Notify
 Rayfield:Notify({
    Title = "Script Executed!",
    Content = "Follow @calix.mendoza00 on TikTok 😎",
    Duration = 10
 })
 
--- GAG Spawner Button
-local GagButton = GagTab:CreateButton({
+-- GAG Spawner
+GagTab:CreateButton({
    Name = "gagspawner",
    Callback = function()
       local success, err = pcall(function()
          local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/main/GardenSpawner.lua"))()
          Spawner.Load()
       end)
-
       if not success then
          warn("Failed to load spawner script: ", err)
       end
    end
 })
 
--- No Lag Script Button
-local nolagButton = GagTab:CreateButton({
+-- No Lag Script
+GagTab:CreateButton({
    Name = "No lag script",
    Callback = function()
       local success, err = pcall(function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/master/NatHub.lua"))()
       end)
-
       if not success then
          warn("Failed to load no-lag script: ", err)
       end
    end
 })
 
--- Zysume Grow a Garden
-local ZysumeButton = Tab:CreateButton({
+-- Zysume GAG Script
+GagTab:CreateButton({
    Name = "Zysume Gag script",
    Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/refs/heads/Xycer-Hub-Script/GAGZ8"))()
-   end,
-})
-
+      local success, err = pcall(function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/Xycer-Hub-Script/GAGZ8"))()
+      end)
       if not success then
-         warn("Failed to load  Zysume Gag script: ", err)
+         warn("Failed to load Zysume Gag script: ", err)
       end
    end
 })
