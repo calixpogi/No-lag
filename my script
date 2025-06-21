@@ -1,0 +1,66 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "game script hub",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "game scriot hub",
+   LoadingSubtitle = "by calixpogi",
+   ShowText = "script", -- for mobile users to unhide rayfield, change if you'd like
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "nil"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "game script key lol",
+      Subtitle = "Watch video",
+      Note = "Wacth the full video to get key", -- Use this to tell the user how to get a key
+      FileName = "Key game script", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/maQrx00Z"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local GagTab = Window:CreateTab("grow a garden", 4483362458) -- Title, Image
+local GagSection = Tab:CreateSection("spawner visual")
+
+Rayfield:Notify({
+   Title = "You have succecfully Executed the script!",
+   Content = "Follow me on tiktok calix.mendoza00",
+   Duration = 15.9,
+   Image = file:///C:/Users/mark_/OneDrive/Pictures/Screenshots/Screenshot%202025-06-21%20160258.png,
+})
+
+local GagButton = Tab:CreateButton({
+   Name = "gagspawner",
+   Callback = function()
+   local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/refs/heads/main/GardenSpawner.lua"))() 
+
+Spawner.Load()
+   end,
+})
+
+local NolagTab = Window:CreateTab("No lag", 4483362458) -- Title, Image
+
+local nolagButton = Tab:CreateButton({
+   Name = "No lag script",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
+   end,
+})
