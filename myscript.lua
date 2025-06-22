@@ -109,7 +109,7 @@ if supportedExecutors[executor] then
 
    -- Dead Rails Tab
    local DeadRailsTab = Window:CreateTab("Dead rails 🚂", 4483362458)
-   local DeadRailsSection = DeadRailsTab:CreateSection("Auto Bonds 🤑")
+   local DeadRailsSection = DeadRailsTab:CreateSection("Auto Bonds 🢲")
 
    DeadRailsTab:CreateButton({
       Name = "Auto Bonds",
@@ -154,6 +154,6 @@ if supportedExecutors[executor] then
 else
    -- Fallback for unsupported or mobile executors
    fallbackNotice()
-   print("[Fallback] Loading simplified version...")
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/master/NatHub.lua"))()
+   print("[Fallback] Loading your custom script...")
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/calixpogi/game-script/main/myscript.lua"))()
 end
