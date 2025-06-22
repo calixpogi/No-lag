@@ -1,0 +1,113 @@
+-- Check executor
+local executor = identifyexecutor and identifyexecutor() or "Unknown"
+
+-- Function to show fallback UI
+local function showFallbackUI()
+   local msg = Instance.new("Message", game:GetService("CoreGui"))
+   msg.Text = "Executor not fully supported. Use PC executor (KRNL/Fluxus) for full UI. Loading fallback menu..."
+
+   wait(4)
+   msg:Destroy()
+
+   print("Fallback loaded")
+   print("Running: gagspawner, no-lag, zysume gag script")
+   -- Add simple commands
+   local buttons = {
+      ["1"] = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/main/GardenSpawner.lua"))():Load()
+      end,
+      ["2"] = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/master/NatHub.lua"))()
+      end,
+      ["3"] = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/Xycer-Hub-Script/GAGZ8"))()
+      end,
+   }
+
+   print("Type 1 for GAGSpawner")
+   print("Type 2 for No Lag")
+   print("Type 3 for Zysume Script")
+
+   -- simple input (doesn’t work on all)
+   game:GetService("UserInputService").InputBegan:Connect(function(input, processed)
+      if not processed then
+         local key = input.KeyCode.Name
+         if buttons[key] then
+            pcall(buttons[key])
+         end
+      end
+   end)
+end
+
+-- Use Rayfield only if executor is supported
+if executor == "KRNL" or executor == "Fluxus" or executor == "Synapse X" or executor == "Xodex" or executor == "Xeno" or executor == "Solara" then
+   local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+   local Window = Rayfield:CreateWindow({
+      Name = "game script hub",
+      Icon = 0,
+      LoadingTitle = "game script hub",
+      LoadingSubtitle = "by calixpogi",
+      ShowText = "script",
+      Theme = "Default",
+      ToggleUIKeybind = "K",
+      DisableRayfieldPrompts = false,
+      DisableBuildWarnings = false,
+
+      ConfigurationSaving = {
+         Enabled = true,
+         FolderName = nil,
+         FileName = "nil"
+      },
+
+      Discord = {
+         Enabled = false,
+         Invite = "noinvitelink",
+         RememberJoins = true
+      },
+
+      KeySystem = true,
+      KeySettings = {
+         Title = "game script key lol",
+         Subtitle = "Watch video",
+         Note = "Watch the full video to get the key",
+         FileName = "KeyGameScript",
+         SaveKey = true,
+         GrabKeyFromSite = true,
+         Key = {"https://pastebin.com/raw/maQrx00Z"}
+      }
+   })
+
+   local GagTab = Window:CreateTab("grow a garden", 4483362458)
+   local GagSection = GagTab:CreateSection("spawner visual")
+
+   Rayfield:Notify({
+      Title = "Script Executed!",
+      Content = "Follow @calix.mendoza00 on TikTok 😎",
+      Duration = 10
+   })
+
+   GagTab:CreateButton({
+      Name = "gagspawner",
+      Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/main/GardenSpawner.lua"))():Load()
+      end
+   })
+
+   GagTab:CreateButton({
+      Name = "No lag script",
+      Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/master/NatHub.lua"))()
+      end
+   })
+
+   GagTab:CreateButton({
+      Name = "Zysume Gag script",
+      Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/Xycer-Hub-Script/GAGZ8"))()
+      end
+   })
+else
+   -- Fallback UI for unsupported executors
+   showFallbackUI()
+end
