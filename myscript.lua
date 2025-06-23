@@ -1,8 +1,16 @@
--- 🎉 Fancy intro message
-print("━━━━━━━━━━━━━━━━━━━━")
-print("🌟 Welcome to Calix Hub 🌟")
-print("📢 Follow calix.mendoza00 on tiktok!")
-print("━━━━━━━━━━━━━━━━━━━━")
+-- Fullscreen message (3 seconds) BEFORE anything else
+local preGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+preGui.ResetOnSpawn = false
+local msgLabel = Instance.new("TextLabel", preGui)
+msgLabel.Size = UDim2.new(1, 0, 1, 0)
+msgLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+msgLabel.BackgroundTransparency = 0.3
+msgLabel.Text = "🔥 Follow @calix.mendoza00 on TikTok 🔥"
+msgLabel.TextColor3 = Color3.new(1, 1, 1)
+msgLabel.Font = Enum.Font.GothamBold
+msgLabel.TextScaled = true
+wait(3)
+preGui:Destroy()
 
 -- Detect executor
 local executor = identifyexecutor and identifyexecutor():lower() or "unknown"
@@ -17,8 +25,7 @@ local supportedExecutors = {
    ["codex"] = true,
    ["xeno"] = true,
    ["solara"] = true,
-   ["wave"] = true,
-   ["delta"] = true
+   ["wave"] = true
 }
 
 -- Fallback notice
@@ -44,52 +51,30 @@ if supportedExecutors[executor] then
       end
    end
 
-   -- Cool overlay with logo and animated message
-   local ScreenGui = Instance.new("ScreenGui")
-   ScreenGui.Name = "FollowCalixOverlay"
-   ScreenGui.ResetOnSpawn = false
-   ScreenGui.IgnoreGuiInset = true
-   ScreenGui.Parent = game:GetService("CoreGui")
-
-   local ImageLabel = Instance.new("ImageLabel")
-   ImageLabel.Size = UDim2.new(0.3, 0, 0.3, 0)
-   ImageLabel.Position = UDim2.new(0.35, 0, 0.15, 0)
-   ImageLabel.BackgroundTransparency = 1
-   ImageLabel.Image = "rbxassetid://94455500773249"
-   ImageLabel.Parent = ScreenGui
-
-   local TextLabel = Instance.new("TextLabel")
-   TextLabel.Size = UDim2.new(1, 0, 1, 0)
-   TextLabel.BackgroundColor3 = Color3.new(0, 0, 0)
-   TextLabel.BackgroundTransparency = 0.5
-   TextLabel.Text = "Follow @calix.mendoza00 on TikTok 😎"
-   TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-   TextLabel.Font = Enum.Font.GothamBold
-   TextLabel.TextScaled = true
-   TextLabel.Parent = ScreenGui
-
-   wait(3)
-   ScreenGui:Destroy()
-
    local Window = Rayfield:CreateWindow({
-      Name = "Calix Hub | Script GUI",
-      LoadingTitle = "Calix Hub Loading...",
-      LoadingSubtitle = "Follow calix 🌀",
+      Name = "game script hub",
+      Icon = 0,
+      LoadingTitle = "game script hub",
+      LoadingSubtitle = "by calixpogi",
       ShowText = "script",
       Theme = "Default",
       ToggleUIKeybind = "K",
+
       DisableRayfieldPrompts = false,
       DisableBuildWarnings = false,
+
       ConfigurationSaving = {
          Enabled = true,
          FolderName = nil,
-         FileName = "KeyGameScript"
+         FileName = "nil"
       },
+
       Discord = {
          Enabled = false,
          Invite = "noinvitelink",
          RememberJoins = true
       },
+
       KeySystem = true,
       KeySettings = {
          Title = "game script key lol",
@@ -102,35 +87,86 @@ if supportedExecutors[executor] then
       }
    })
 
-   -- 🏴‍☠️ Create Tab: Bloxfruit
-   local BloxfruitTab = Window:CreateTab("Bloxfruit🏴‍☠️", 4483362458)
-
-   -- 💰 Create Section: Autofarm
-   local AutofarmSection = BloxfruitTab:CreateSection("Autofarm💰")
-
-   -- 🔘 Add Button: Xero Hub
-   Rayfield:CreateButton({
-      Name = "Xero Hub",
-      Callback = function()
-         getgenv().Team = "Marines"
-         getgenv().Hide_Menu = false
-         getgenv().Auto_Execute = false
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/XeroHub/refs/heads/main/main.lua"))()
-      end,
-      SectionParent = AutofarmSection
+   Rayfield:Notify({
+      Title = "Script Executed!",
+      Content = "Follow @calix.mendoza00 on TikTok 😎",
+      Duration = 10
    })
 
-   -- 🔘 Add Button: Redz Hub
-   Rayfield:CreateButton({
-      Name = "Redz Hub",
+   -- GAG Tab
+   local GagTab = Window:CreateTab("grow a garden 🌱", 4483362458)
+   GagTab:CreateSection("Spawner Visual")
+   GagTab:CreateButton({
+      Name = "gagspawner [by calix mendoza]",
       Callback = function()
-         local Settings = {
-            JoinTeam = "Pirates", -- Pirates / Marines
-            Translator = true,    -- true / false
-         }
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
-      end,
-      SectionParent = AutofarmSection
+         stopMusic()
+         Rayfield:Notify({ Title = "Loading...", Content = "Please wait", Duration = 2 })
+         pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/DeltaGay/femboy/main/GardenSpawner.lua"))()
+         end)
+      end
+   })
+
+   GagTab:CreateButton({
+      Name = "No lag script [by calix mendoza]",
+      Callback = function()
+         stopMusic()
+         Rayfield:Notify({ Title = "Loading...", Content = "Please wait", Duration = 2 })
+         pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/master/NatHub.lua"))()
+         end)
+      end
+   })
+
+   GagTab:CreateButton({
+      Name = "Zysume Gag script [by calix mendoza]",
+      Callback = function()
+         stopMusic()
+         Rayfield:Notify({ Title = "Loading...", Content = "Please wait", Duration = 2 })
+         pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/Xycer-Hub-Script/GAGZ8"))()
+         end)
+      end
+   })
+
+   GagTab:CreateSection("Pet Placer + Spawner")
+   GagTab:CreateButton({
+      Name = "Pet Placer + Spawner [by calix mendoza]",
+      Callback = function()
+         stopMusic()
+         Rayfield:Notify({ Title = "Loading...", Content = "Please wait", Duration = 2 })
+         pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/refs/heads/Xycer-Hub-Script/ZyGaG6"))()
+         end)
+      end
+   })
+
+   -- Add back Dead Rails Tab
+   local DeadRailsTab = Window:CreateTab("Dead rails 🚂", 4483362458)
+   DeadRailsTab:CreateSection("Auto Bonds 🢲")
+   DeadRailsTab:CreateButton({
+      Name = "Auto Bonds",
+      Callback = function()
+         stopMusic()
+         Rayfield:Notify({ Title = "Loading...", Content = "Please wait", Duration = 2 })
+         pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
+         end)
+      end
+   })
+
+   -- Add Brainrot Tab
+   local BrainrotTab = Window:CreateTab("Steal a brainrot 💀", 4483362458)
+   BrainrotTab:CreateSection("Brainrot GUIs")
+   BrainrotTab:CreateButton({
+      Name = "Brainrot GUI 1",
+      Callback = function()
+         stopMusic()
+         Rayfield:Notify({ Title = "Loading...", Content = "Please wait", Duration = 2 })
+         pcall(function()
+            loadstring(game:HttpGet("https://scripts.city/LegendHub.lua"))()
+         end)
+      end
    })
 else
    fallbackNotice()
