@@ -1,16 +1,23 @@
--- Fullscreen message (3 seconds) BEFORE anything else
-local preGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-preGui.ResetOnSpawn = false
-local msgLabel = Instance.new("TextLabel", preGui)
-msgLabel.Size = UDim2.new(1, 0, 1, 0)
-msgLabel.BackgroundColor3 = Color3.new(0, 0, 0)
-msgLabel.BackgroundTransparency = 0.3
-msgLabel.Text = "🔥 Follow @calix.mendoza00 on TikTok 🔥"
-msgLabel.TextColor3 = Color3.new(1, 1, 1)
-msgLabel.Font = Enum.Font.GothamBold
-msgLabel.TextScaled = true
+-- Obfuscated Fullscreen message (3 seconds) BEFORE anything else
+local _a = Instance.new("ScreenGui", game:GetService("CoreGui"))
+_a.ResetOnSpawn = false
+local _b = Instance.new("TextLabel", _a)
+_b.Size = UDim2.new(1, 0, 1, 0)
+_b.BackgroundColor3 = Color3.new(0, 0, 0)
+_b.BackgroundTransparency = 0.3
+_b.Text = "🔥 Follow @calix.mendoza00 on TikTok 🔥"
+_b.TextColor3 = Color3.new(1, 1, 1)
+_b.Font = Enum.Font.GothamBold
+_b.TextScaled = true
 wait(3)
-preGui:Destroy()
+_a:Destroy()
+
+-- Upload Your Protected Script:
+-- 1. Go to https://pastebin.com
+-- 2. Paste your full obfuscated script (everything below)
+-- 3. Set it to Unlisted, create the paste
+-- 4. Copy the Raw link, e.g. https://pastebin.com/raw/abc123
+-- 5. Create a loader with: loadstring(game:HttpGet("https://pastebin.com/raw/abc123"))()
 
 -- Detect executor
 local executor = identifyexecutor and identifyexecutor():lower() or "unknown"
